@@ -33,10 +33,11 @@ def format_suffix(direction, chosen_thing):
 
 
 direction = not bool(random.getrandbits(1))
+add_extra_spice = bool(random.getrandbits(1))
 chosen_thing = find_one_random('data/hedefler')
 
-print('senin {} {} {}{} {}'.format(
-    find_one_random('data/sifatlar'),
+print('senin {}{} {}{} {}'.format(
+    '{} '.format(find_one_random('data/sifatlar')) if add_extra_spice else '',
     find_one_random('data/kisiler'),
     chosen_thing,
     format_suffix(direction, chosen_thing),
