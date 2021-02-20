@@ -32,14 +32,19 @@ def format_suffix(direction, chosen_thing):
     return 'e'
 
 
-direction = not bool(random.getrandbits(1))
-add_extra_spice = bool(random.getrandbits(1))
-chosen_thing = find_one_random('data/hedefler')
+def kufur():
+    direction = not bool(random.getrandbits(1))
+    add_extra_spice = bool(random.getrandbits(1))
+    chosen_thing = find_one_random('data/hedefler')
 
-print('senin {}{} {}{} {}'.format(
-    '{} '.format(find_one_random('data/sifatlar')) if add_extra_spice else '',
-    find_one_random('data/kisiler'),
-    chosen_thing,
-    format_suffix(direction, chosen_thing),
-    find_one_random('data/da-kufurler') if direction else find_one_random('data/a-kufurler'),
-))
+    return('senin {}{} {}{} {}'.format(
+        '{} '.format(find_one_random('data/sifatlar')) if add_extra_spice else '',
+        find_one_random('data/kisiler'),
+        chosen_thing,
+        format_suffix(direction, chosen_thing),
+        find_one_random('data/da-kufurler') if direction else find_one_random('data/a-kufurler'),
+    ))
+
+
+if __name__ == "__main__":
+    print(kufur())
