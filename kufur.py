@@ -33,12 +33,21 @@ def format_suffix(direction, chosen_thing):
 
 
 def kufur():
+    # Pick  the special full-sentence ones (lower probability)
+    if bool(random.choices(population=[0, 1], weights=[4, 1], k=1)[0]):
+        return find_one_random('data/ozel_kufurler')
+
     direction = not bool(random.getrandbits(1))
-    add_extra_spice = bool(random.getrandbits(1))
     chosen_thing = find_one_random('data/hedefler')
 
-    return('senin {}{} {}{} {}'.format(
-        '{} '.format(find_one_random('data/sifatlar')) if add_extra_spice else '',
+    # Add extra spice
+    chosen_adjective = ''
+    if bool(random.getrandbits(1)):
+        chosen_adjective = '{} '.format(find_one_random('data/sifatlar'))
+
+    return('{}{}{} {}{} {}'.format(
+        'senin ' if bool(random.getrandbits(1)) else '',
+        chosen_adjective,
         find_one_random('data/kisiler'),
         chosen_thing,
         format_suffix(direction, chosen_thing),
