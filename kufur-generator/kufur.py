@@ -5,7 +5,8 @@ from os import path
 
 
 def find_one_random(inputfile):
-    with open('{}/data/{}'.format(path.dirname(path.realpath(__file__)), inputfile)) as f:
+    with open('{}/data/{}'.format(
+            path.dirname(path.realpath(__file__)), inputfile)) as f:
         lines = f.readlines()
         random_int = random.randint(0, len(lines) - 1)
         return lines[random_int].rstrip()
@@ -52,7 +53,11 @@ def kufur():
         find_one_random('kisiler'),
         chosen_thing,
         format_suffix(direction, chosen_thing),
-        find_one_random('da-kufurler') if direction else find_one_random('a-kufurler'),
+        find_one_random(
+            'da-kufurler'
+        ) if direction else find_one_random(
+            'a-kufurler'
+        ),
     ))
 
 

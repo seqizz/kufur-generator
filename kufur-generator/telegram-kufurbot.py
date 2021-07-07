@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 
 def start(bot, update):
     bot.message.reply_text(
-        "Hoşgeldin. Bu bot sadece acımasızca küfreder."
+        "Hoşgeldin. Bu bot tüm mesajlarına küfürle karşılık verir."
     )
 
 
