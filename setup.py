@@ -6,7 +6,7 @@ from sysconfig import get_paths
 
 setup(
     name='kufur-generator',
-    version='1.2',
+    version='1.3',
     description='Turkce kufur ureteci',
     author='seqizz',
     include_package_data=True,
